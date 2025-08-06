@@ -8,7 +8,7 @@ const lcjs = require('@lightningchart/lcjs')
 const xydata = require('@lightningchart/xydata')
 
 // Extract required parts from LightningChartJS.
-const { lightningChart, AxisTickStrategies, OHLCFigures, emptyLine, AxisScrollStrategies, Themes } = lcjs
+const { lightningChart, AxisTickStrategies, OHLCSeriesTypes, emptyLine, AxisScrollStrategies, Themes } = lcjs
 
 // Import data-generator from 'xydata'-library.
 const { createOHLCGenerator } = xydata
@@ -32,7 +32,6 @@ chart.setCursor((cursor) => {
     cursor.setTickMarkerYVisible(false)
     cursor.setGridStrokeYStyle(emptyLine)
 })
-chart.setPadding({ right: 40 })
 
 // Change the title and behavior of the default Y Axis
 chart
@@ -42,7 +41,9 @@ chart
     .setScrollStrategy(AxisScrollStrategies.expansion)
 
 // Add a OHLC series with Candlestick as type of figures.
-const series = chart.addOHLCSeries({ positiveFigure: OHLCFigures.Candlestick })
+const series = chart.addOHLCSeries({ 
+    type: OHLCSeriesTypes.Candlestick 
+})
 // Generate some points using 'xydata'-library.
 const dataSpan = 10 * 24 * 60 * 60 * 1000
 const dataFrequency = 1000 * 60
