@@ -64,7 +64,7 @@ Candlesticks are formed from two parts: _Body_ and *Line*s. Both of these can be
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
-![](./assets/candlestick.png)
+![Candlesticks](./assets/candlestick.png)
 
 
 ## API Links
